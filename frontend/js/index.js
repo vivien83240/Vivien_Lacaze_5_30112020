@@ -1,6 +1,6 @@
 
 
-let elt = document.getElementById('test');
+/*let elt = document.getElementById('test');
 console.log(elt)
 
 elt.innerHTML = 'Hello world';
@@ -19,4 +19,4 @@ fetch( 'http://localhost:3000/api/cameras/' , {method: 'GET'})
         elt.innerHTML += `<img width="200px" src="${product.imageUrl}">`; 
     })
 
-})
+})*/

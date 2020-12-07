@@ -14,7 +14,11 @@
   },
   
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "browserslist": "last 4 versions",
+  "bugs": {
+    "url": "https://github.com/vivien83240/Vivien_Lacaze_5_30112020/issues"
+  },
 
   
 }

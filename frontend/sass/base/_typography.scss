@@ -12,11 +12,6 @@
          url('../fonts/Roboto-Black-webfont.ttf') format('truetype');
 }
 
-@font-face {
-    font-family: 'shrikhand';
-    src: url('../fonts/Shrikhand-Regular.otf') format('truetype');
-}
-
 /*////////////////////////////////////////////////////////////////////*/
 
 h1,h2 {
@@ -34,15 +29,5 @@ p{
 h3 {
     font-family: 'robotoblack', Arial, sans-serif;
     font-size: 1.2em;
-    font-weight: bold;
-}
-
-a{
-    text-decoration: none;
-    color: black;
-}
-
-address{
-    font-style: normal;
     font-weight: bold;
 }
