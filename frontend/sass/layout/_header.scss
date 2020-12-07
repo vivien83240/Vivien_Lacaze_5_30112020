@@ -46,8 +46,8 @@ header{
 
                 &:hover {
                     color: $colour-white;
-                    border: 2px solid $colour-primary;
-                    background-color: $colour-primary;
+                    border: 2px solid $colour-white;
+                    background: $colour-degrade;
 
                     i{
                         color: $colour-white; 
