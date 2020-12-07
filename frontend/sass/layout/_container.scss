@@ -1,0 +1,11 @@
+#main-ctn{
+    width: 100%;
+    padding: 150px 0 0 0;
+    text-align: center;
+    h1{
+        border-bottom: 8px ridge $colour-primary;
+        border-radius: 7px;
+        display: inline;
+        padding: 0 0 5px 0;
+    }
+}
