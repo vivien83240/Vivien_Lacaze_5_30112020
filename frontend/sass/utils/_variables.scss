@@ -1,0 +1,8 @@
+$colour-primary: #8f5bfe;
+$colour-secondary: #e58a0c;
+$colour-tertiary: #b36f99;
+$colour-accent: #f3e9f1;
+
+$colour-white: #fff;
+
+$colour-degrade: linear-gradient(to bottom right, $colour-secondary, $colour-tertiary, $colour-primary);
