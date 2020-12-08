@@ -10,11 +10,11 @@ header{
 
     img{
         height: 80px;
-        padding-left: 70px;
+        padding-left: 100px;
     }
 
     nav{
-        padding-right: 70px;
+        padding-right: 100px;
         ul{
             display: flex;
             justify-content: flex-end;
@@ -25,8 +25,7 @@ header{
                 
                 a{
                     font-size: 1.1em;
-                    //font-weight: bold;
-                    
+
                     &:hover{
                         color: $colour-primary;
                     }
