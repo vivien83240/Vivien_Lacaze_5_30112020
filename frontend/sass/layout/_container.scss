@@ -30,6 +30,13 @@
         margin-right: 25px;
         position: relative;
 
+        &:hover{
+            box-sizing: border-box;
+            border: 2px solid $colour-primary;
+            transform: scale(1.03);
+            transition: transform 200ms ease;
+        }
+
         a{
             display: flex;
             flex-direction: column;
