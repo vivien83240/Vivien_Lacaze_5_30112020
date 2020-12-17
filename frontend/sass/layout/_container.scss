@@ -1,6 +1,6 @@
 #main-ctn{
     width: 100%;
-    padding: 160px 0 0 0;
+    padding: 160px 0 80px 0;
     text-align: center;
     h1{
         border-bottom: 8px ridge $colour-primary;
@@ -13,26 +13,27 @@
 
 .carte{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    margin: 80px 0 0 0;
+    margin: 80px 30px 0 30px;
    
     > li{
         display: flex;
         flex-direction: column;
-        width: 350px;
-        height: 350px;
+        width: 45vh;
+        height: 30vh;
         background: $colour-white;
         border-radius: 15px;
         overflow: hidden;
         box-shadow: 0px 1px 10px silver;
-        margin-bottom: 20px;
+        margin-bottom: 40px;
         margin-left: 25px;
         margin-right: 25px;
         position: relative;
 
         &:hover{
             box-sizing: border-box;
-            border: 2px solid $colour-primary;
+            border: 3px solid $colour-primary;
             transform: scale(1.03);
             transition: transform 200ms ease;
         }
@@ -53,7 +54,7 @@
         align-items: center;
         width: 100%;
         background-color: $colour-white;
-        padding: 15px 0px 15px 0px;
+        padding: 10px 0px 10px 0px;
         position: absolute;
         bottom: 0;
         
