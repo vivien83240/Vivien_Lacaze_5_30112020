@@ -26,7 +26,7 @@ fetch( url , {method: 'GET'})
                                 <h1> ${product.name} </h1>
                                 <div class="produit__text--prix"> ${product.price} € </div>
                                 <p> ${product.description}</p>
-                                <div class="produit__text--option">Option</div>
+                                <div class="produit__text--option">Lentille : ${product.lenses}</div>
                                 <button class="" type="button"> Ajouter au panier </button>
                             </li>`
     //})
