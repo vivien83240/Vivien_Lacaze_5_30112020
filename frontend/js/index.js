@@ -4,8 +4,6 @@ let elt = document.getElementById('produits');
 console.log(elt)
 elt.innerHTML =''
 
-// elt.innerHTML = 'Hello world';
-
 
 fetch( 'http://localhost:3000/api/cameras/' , {method: 'GET'})
 .then((data) => {
