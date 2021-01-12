@@ -36,7 +36,11 @@
                         
                         img{
                             height: 80px;
-                            margin-right: 30px;
+                            margin: 0 50px 0 50px;
+                        }
+
+                        i{
+                            color: silver;
                         }
                     }
                 }
@@ -44,15 +48,11 @@
             tfoot{
                 tr{
                     border: 1px solid rgb(228, 228, 228);
-                    td{
+                    th{
                         height: 50px;
                         text-align: end;
-                        padding-right: 20px;
+                        padding-right: 30px;
                         font-size: 1.2em;
-                        .prix-total{
-                            font-weight: bold;
-                            
-                        }
                     }
                 }
             }
