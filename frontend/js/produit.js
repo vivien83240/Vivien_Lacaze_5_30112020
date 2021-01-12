@@ -9,12 +9,11 @@ fetch( url , {method: 'GET'})
     return data.json();
 }).then((product) => {
 
-    let elt = document.getElementById('produit');
-    elt.innerHTML = `  <li class="produit__img">
-                            <img src="${product.imageUrl}" alt="Photo de camera - ${product.name}" />
-                        </li>
-                        <li class="produit__text">
-                            <h1> ${product.name} </h1>
+    let produitImg = document.getElementById('produit__img');
+    produitImg.innerHTML = `<img src="${product.imageUrl}" alt="Photo de camera - ${product.name}" />`
+
+    let produitText = document.getElementById('produit__text');
+    produitText.innerHTML = `<h1> ${product.name} </h1>
                             <div class="produit__text--prix"> ${product.price} € </div>
                             <p> ${product.description}</p>
                             <div class="produit__text--option">
@@ -22,22 +21,21 @@ fetch( url , {method: 'GET'})
                                 <select name="lenses" id="lenses">
                                 </select>
                             </div>
-                            <button class="" type="button"> Ajouter au panier </button>
-                        </li>`
+                            <button class="addToCart" type="button"> Ajouter au panier </button>`
 
     let lenses_html = document.getElementById('lenses');
     
     product.lenses.forEach(lense =>{
-        lenses_html.innerHTML += `<option value="${lense}">${lense}</option>`
+        lenses_html.innerHTML += `<option value="${lense}">${lense}</option>`   
     })
 
-    // localStorage.setItem('panier', 'Mes produits');
-    // let panier = localStorage.getItem('panier');
-    // console.log(panier)
+    //localStorage.setItem('panier', 'Mes produits');
+    //let panier = localStorage.getItem('panier');
+    //console.log(panier)
 
-    // localStorage.removeItem('panier');
-    // panier = localStorage.getItem('panier');
-    // console.log(panier)
+    //localStorage.removeItem('panier');
+    //panier = localStorage.getItem('panier');
+    //console.log(panier)
 
     // if(panier){
     //     console.log('j\'ai un panier')

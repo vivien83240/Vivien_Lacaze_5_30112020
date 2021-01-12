@@ -1,7 +1,6 @@
 
 
 let elt = document.getElementById('produits');
-console.log(elt)
 elt.innerHTML =''
 
 
@@ -12,8 +11,6 @@ fetch( 'http://localhost:3000/api/cameras/' , {method: 'GET'})
     console.log(products)
 
     products.forEach(product =>{
-        console.log(product.name)
-        console.log(product.imageUrl)
 
         elt.innerHTML += `<li>
                 <a href="produit.html?idProduit=${product._id}">  
