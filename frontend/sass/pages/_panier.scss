@@ -9,31 +9,50 @@
         padding: 0 0 5px 0;
     }
 
-    table{
+    #tableau-panier{
+        display: block;
+        margin-top: 80px;
+        margin-left: 10%;
+        margin-right: 10%;
         
-        width: 50%;
-        margin: 50px 0 0 100px;
-        border-collapse: collapse; 
+        table{
+            width: 100%;
+            border-collapse: collapse;
 
-        thead{
-            tr{
-                border: 1px solid rgb(228, 228, 228);
-                th{
-                    height: 30px;
-                }     
+            thead{
+                tr{
+                    border: 1px solid rgb(228, 228, 228);
+                    th{
+                        height: 30px;
+                    }     
+                }
             }
-        }
-
-        tbody{
-            tr{
-                border: 1px solid rgb(228, 228, 228);
-                td{
-                    height: 80px;
-                    color: $colour-primary;  
-                    
-                    img{
+            tbody{
+                tr{
+                    border: 1px solid rgb(228, 228, 228);
+                    td{
+                        height: 100px;
+                        color: $colour-primary;  
+                        
+                        img{
+                            height: 80px;
+                            margin-right: 30px;
+                        }
+                    }
+                }
+            }
+            tfoot{
+                tr{
+                    border: 1px solid rgb(228, 228, 228);
+                    td{
                         height: 50px;
-                        margin-right: 30px;
+                        text-align: end;
+                        padding-right: 20px;
+                        font-size: 1.2em;
+                        .prix-total{
+                            font-weight: bold;
+                            
+                        }
                     }
                 }
             }
