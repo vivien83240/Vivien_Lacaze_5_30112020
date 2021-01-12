@@ -10,13 +10,15 @@
     }
 
     #tableau-panier{
-        display: block;
+        display: flex;
+        justify-content: space-between;
         margin-top: 80px;
-        margin-left: 10%;
-        margin-right: 10%;
+        margin-bottom: 80px;
+        margin-left: 7%;
+        margin-right: 7%;
         
         table{
-            width: 100%;
+            width: 65%;
             border-collapse: collapse;
 
             thead{
@@ -56,6 +58,64 @@
                     }
                 }
             }
+        }
+
+        form{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 28%;
+            border: 1px solid rgb(228, 228, 228);
+            border-radius: 15px;
+            padding: 10px;
+            h2{
+                font-size: 1.8em;
+                text-align: start;
+                margin-top: 5px;
+                margin-bottom: 20px;
+            }
+            label{
+                text-align: start;
+            }
+            input{
+                height: 35px;
+                margin: 0 0 20px 0;
+                border: 2px solid $colour-primary;
+                border-radius: 10px;
+                &:focus{
+                    outline: none;
+                    border: 2px solid $colour-accent;
+                    border-radius: 10px;
+                }
+                &:invalid {
+                    border: 2px solid lightgrey;
+                  }
+            }
+
+            p{
+                font-size: 0.8em;
+                font-style: italic;
+                text-align: start;
+                margin-bottom: 20px;
+            }
+
+            #form-button{
+                cursor: pointer;
+                text-decoration: none;
+                background-color: $colour-secondary;
+                height: 50px;
+                border: none;
+                width: 100%;
+                font-size: 1.1em;
+                color: white;
+                &:hover, &:focus {
+                background: $colour-primary;
+                
+                }
+            }
+
+
+
         }
     }
 }

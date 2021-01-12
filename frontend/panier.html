@@ -26,29 +26,45 @@
 
         <article id="tableau-panier">
             <table>
-                <thead>
-                    <tr>
+                <thead><tr>
                         <th>Nom du produit</th>
                         <th>Quantité</th>
                         <th>Prix</th>
                         <th>Actions</th>
-                    </tr>
-                </thead> 
-                <tbody>  
-                    <tr>
+                </tr></thead> 
+                <tbody><tr>
                         <td align="left"><img src="" alt="Photo de camera - "> Titre caméra</td>
                         <td>1</td>
                         <td> --€ </td>
                         <td><i class="fas fa-trash-alt"></i></td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
+                </tr></tbody>
+                <tfoot><tr>
                         <th colspan="4">SOUS-TOTAL &nbsp &nbsp &nbsp--€ </th>
-                    </tr>
-
-                </tfoot>
+                </tr></tfoot>
             </table>
+
+            <form method="post" action="">
+                <h2> Vos Coordonnées </h2>
+                <label for="firstName">Prénom : *</label>
+                <input type="text" name="firstName" id="firstName" autofocus required/>
+
+                <label for="lastName">Nom : *</label>
+                <input type="text" name="lastName" id="lastName" required/>
+
+                <label for="address">Adresse : *</label>
+                <input type="text" name="address" id="address" required/>
+
+                <label for="city">Ville : *</label>
+                <input type="text" name="city" id="city" required/>
+
+                <label for="email">Email : *</label>
+                <input type="email" name="email" id="email" required/>
+
+                <p>* Champs requis</p>
+
+                <input type="submit" action="" value="Valider la commande" id="form-button"/>
+            </form>
+
         </article>
 
     </section>
