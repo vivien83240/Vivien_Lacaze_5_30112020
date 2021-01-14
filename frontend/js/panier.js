@@ -1,6 +1,3 @@
-//let tabProduit = document.getElementById('tableau-produit');
-//tabProduit.innerHTML =''
-
 
 fetch( 'http://localhost:3000/api/cameras/' , {method: 'GET'})
 .then((data) => {
@@ -21,25 +18,16 @@ fetch( 'http://localhost:3000/api/cameras/' , {method: 'GET'})
                     <td>1</td>
                     <td> ${product.price} € </td>
                     <td><i class="fas fa-trash-alt"></i></td>
-                </tr>
-                `
+                </tr>`
             });
         } else{
-            tabProduit.innerHTML ='';
-            tabProduit.innerHTML += `
-                <tr>
-                    <td colspan="4">Il n'y a aucun produit dans votre panier</td>
-                </tr>`
+            tabProduit.innerHTML =`
+            <tr>
+                <td colspan="4">Il n'y a aucun produit dans votre panier</td>
+            </tr>`
         }   
     }
 
     afficheProduit();
-
-    /*product.forEach(product =>{
-
-        elt.innerHTML += `
-        
-        `
-    })*/
 
 })
