@@ -24,8 +24,13 @@ fetch( 'http://localhost:3000/api/cameras/' , {method: 'GET'})
                 </tr>
                 `
             });
-        }
-        
+        } else{
+            tabProduit.innerHTML ='';
+            tabProduit.innerHTML += `
+                <tr>
+                    <td colspan="4">Il n'y a aucun produit dans votre panier</td>
+                </tr>`
+        }   
     }
 
     afficheProduit();
