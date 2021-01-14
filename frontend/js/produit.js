@@ -27,9 +27,54 @@ fetch( url , {method: 'GET'})
     
     product.lenses.forEach(lense =>{
         lenses_html.innerHTML += `<option value="${lense}">${lense}</option>`   
-    })
+    });
 
-    //localStorage.setItem('panier', 'Mes produits');
+
+    let addToCart = document.querySelectorAll(".addToCart");
+    
+    for (let i=0; i < addToCart.length; i++) {
+        addToCart[i].addEventListener("click", () => {
+            addProduits(product);
+        })
+    }
+
+    function addProduits(product){
+
+        let panier = localStorage.getItem('panier');
+        panier = JSON.parse(panier);
+        
+        if (panier != null) {
+            panier = {
+                ...panier,
+                [product.name]: product
+            }  
+        } else {
+            panier = {
+                [product.name]: product
+            }
+        } 
+
+        localStorage.setItem('panier', JSON.stringify(panier));
+    }
+       
+    
+    
+    /*function addProduits(product){
+
+        let panier = localStorage.getItem('panier');
+        //localStorage.setItem('panier', JSON.stringify(product));
+        let myProduct = JSON.stringify(product);
+        if (panier) {
+            localStorage.setItem('panier', myProduct);
+        }else {
+            localStorage.setItem('panier', myProduct);
+        } 
+    
+    }*/
+       
+
+
+    //localStorage.setItem('panier', (product._id));
     //let panier = localStorage.getItem('panier');
     //console.log(panier)
 
