@@ -70,38 +70,6 @@ fetch( url , {method: 'GET'})
             localStorage.setItem("prixTotal", product.price);
         } 
     }
-       
-    
-    
-    /*function addProduits(product){
-
-        let panier = localStorage.getItem('panier');
-        //localStorage.setItem('panier', JSON.stringify(product));
-        let myProduct = JSON.stringify(product);
-        if (panier) {
-            localStorage.setItem('panier', myProduct);
-        }else {
-            localStorage.setItem('panier', myProduct);
-        } 
-    
-    }*/
-       
-
-
-    //localStorage.setItem('panier', (product._id));
-    //let panier = localStorage.getItem('panier');
-    //console.log(panier)
-
-    //localStorage.removeItem('panier');
-    //panier = localStorage.getItem('panier');
-    //console.log(panier)
-
-    // if(panier){
-    //     console.log('j\'ai un panier')
-    // }else{
-    //     console.log('je n\'ai pas de panier')
-    //     localStorage.clear();
-    // }
 
 })
 
