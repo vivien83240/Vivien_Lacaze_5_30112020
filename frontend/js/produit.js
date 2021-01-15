@@ -32,9 +32,11 @@ fetch( url , {method: 'GET'})
 
     let addToCart = document.querySelectorAll(".addToCart");
     
+
     for (let i=0; i < addToCart.length; i++) {
         addToCart[i].addEventListener("click", () => {
             addProduits(product);
+            prixTotal(product);
         })
     }
 
@@ -55,6 +57,18 @@ fetch( url , {method: 'GET'})
         } 
 
         localStorage.setItem('panier', JSON.stringify(panier));
+    }
+
+    function prixTotal(product){
+
+        let panierTotal = localStorage.getItem('prixTotal');
+
+        if (panierTotal != null) {
+            panierTotal = parseInt(panierTotal);
+            localStorage.setItem("prixTotal", panierTotal + product.price);
+        } else {
+            localStorage.setItem("prixTotal", product.price);
+        } 
     }
        
     

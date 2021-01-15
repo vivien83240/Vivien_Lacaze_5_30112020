@@ -14,7 +14,7 @@ fetch( 'http://localhost:3000/api/cameras/' , {method: 'GET'})
             Object.values(panier).map(product =>{
                 tabProduit.innerHTML += `
                 <tr>
-                    <td align="left"><img src="${product.imageUrl}" alt="Photo de camera - ${product.name}"> ${product.name}</td>
+                    <td align="left" class="titre-produit"><img src="${product.imageUrl}" alt="Photo de camera - ${product.name}"> <span>${product.name}</span></td>
                     <td>1</td>
                     <td> ${product.price} € </td>
                     <td><i class="fas fa-trash-alt"></i></td>
@@ -28,6 +28,25 @@ fetch( 'http://localhost:3000/api/cameras/' , {method: 'GET'})
         }   
     }
 
+    function prixTotal(){
+
+        let prixTotal = localStorage.getItem('prixTotal');
+        let total = document.getElementById('total');
+    
+        if (prixTotal && total){
+            total.innerHTML = `
+                <tr>
+                        <th colspan="4">SOUS-TOTAL &nbsp &nbsp &nbsp ${prixTotal} € </th>
+                </tr>`
+        } else{
+            total.innerHTML =`
+            <tr>
+                        <th colspan="4">SOUS-TOTAL &nbsp &nbsp &nbsp 0 € </th>
+            </tr>`
+        }   
+    }
+
     afficheProduit();
+    prixTotal();
 
 })

@@ -33,16 +33,24 @@
                 tr{
                     border: 1px solid rgb(228, 228, 228);
                     td{
+                        
                         height: 100px;
                         color: $colour-primary;  
                         
                         img{
                             height: 80px;
                             margin: 0 50px 0 50px;
+                            overflow: hidden;
                         }
-
                         i{
                             color: silver;
+                        }
+                    }
+                    .titre-produit{
+                        display: flex;
+                        align-items: center;
+                        span{
+                            color: $colour-primary;
                         }
                     }
                 }
