@@ -24,18 +24,18 @@ fetch( url , {method: 'GET'})
                             <button class="addToCart" type="button"> Ajouter au panier </button>`
 
     let lenses_html = document.getElementById('lenses');
-    
+
     product.lenses.forEach(lense =>{
         lenses_html.innerHTML += `<option value="${lense}">${lense}</option>`   
     });
 
 
     let addToCart = document.querySelectorAll(".addToCart");
-    
 
     for (let i=0; i < addToCart.length; i++) {
         addToCart[i].addEventListener("click", () => {
             addProduits(product);
+            //lentilles();
             prixTotal(product);
         })
     }
@@ -44,20 +44,25 @@ fetch( url , {method: 'GET'})
 
         let panier = localStorage.getItem('panier');
         panier = JSON.parse(panier);
+
+        let lensesOption = lenses_html.selectedOptions[0];
+        lensesOption = lensesOption.value;
+
+        product.lenses = lensesOption
         
         if (panier != null) {
-            panier = {
+            panier = [
                 ...panier,
-                [product.name]: product
-            }  
+                product
+            ]  
         } else {
-            panier = {
-                [product.name]: product
-            }
-        } 
-
-        localStorage.setItem('panier', JSON.stringify(panier));
+            panier = [
+                product
+            ]
+        }
+        localStorage.setItem('panier', JSON.stringify(panier)); 
     }
+
 
     function prixTotal(product){
 
