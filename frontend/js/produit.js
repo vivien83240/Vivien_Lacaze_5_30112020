@@ -35,7 +35,6 @@ fetch( url , {method: 'GET'})
     for (let i=0; i < addToCart.length; i++) {
         addToCart[i].addEventListener("click", () => {
             addProduits(product);
-            //lentilles();
             prixTotal(product);
         })
     }

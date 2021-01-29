@@ -39,26 +39,26 @@
                 </tfoot>
             </table>
 
-            <form method="post" action="">
+            <form name="form" id="form">
                 <h2> Vos Coordonnées </h2>
                 <label for="firstName">Prénom : *</label>
-                <input type="text" name="firstName" id="firstName" autofocus required/>
+                <input type="text" name="firstName" id="firstName" autofocus required value="toto"/>
 
                 <label for="lastName">Nom : *</label>
-                <input type="text" name="lastName" id="lastName" required/>
+                <input type="text" name="lastName" id="lastName" required value="toto"/>
 
                 <label for="address">Adresse : *</label>
-                <input type="text" name="address" id="address" required/>
+                <input type="text" name="address" id="address" required value="toto"/>
 
                 <label for="city">Ville : *</label>
-                <input type="text" name="city" id="city" required/>
+                <input type="text" name="city" id="city" required value="toto"/>
 
                 <label for="email">Email : *</label>
-                <input type="email" name="email" id="email" required/>
+                <input type="email" name="email" id="email" required value="toto@toto.fr"/>
 
                 <p>* Champs requis</p>
 
-                <input type="submit" action="" value="Valider la commande" id="form-button"/>
+                <button type="submit" id="form-button">Valider la commande</button>
             </form>
         </article>
     </section>
