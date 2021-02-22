@@ -9,7 +9,6 @@ fetch( 'http://localhost:3000/api/cameras/' , {method: 'GET'})
     return data.json();
 }).then((products) => {
     console.log(products)
-
     products.forEach(product =>{
 
         elt.innerHTML += `<li>

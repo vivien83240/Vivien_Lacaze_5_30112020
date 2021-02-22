@@ -1,4 +1,38 @@
 footer{
+    //width: 100%;
+    display: flex;
+    justify-content: space-between;
     background: $colour-accent;
-    height: 200px;
+    padding: 50px 150px 50px 150px;
+    a{
+        margin: 15px 0 0 0;
+        img{
+          width: 250px;  
+        }  
+    }
+    ul{
+        margin: 0 0 0 20px;
+
+        h3{
+            color: $colour-primary;
+            border-bottom: 6px solid $colour-primary;
+            margin-bottom: 20px;
+        }
+        li{
+            margin: 0 0 5px 0;
+            cursor: pointer;
+
+            &::before {
+                content: "\2022"; 
+                color: $colour-primary; 
+                font-weight: bold; 
+                display: inline-block; 
+                width: 1em;
+            }
+        }
+    }
+
+    
+
 }
+
