@@ -53,6 +53,50 @@ prixTotal();
 
 ///////////////////   FORMULAIRE   ///////////////////
 
+
+let firstNameForm = document.getElementById('firstName').value;
+let lastNameForm = document.getElementById('lastName').value;
+let addressForm = document.getElementById('address').value;
+let cityForm = document.getElementById('city').value;
+let emailForm = document.getElementById('email').value;
+
+let buttonForm = document.getElementById('form-button');
+
+function inputOk() {
+    let checkMessage = "";
+
+    let regexNumber = /[0-9]/;
+    let regexString = /[a-zA-Z]/;
+    let regexSpecialCharacter = /[§!@#$%^&*(),.?":{}|<>]/;
+    let regexEmail = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/y;
+
+    
+    if (regexNumber.test(value) == true || regexSpecialCharacter.test(value) == true || firstNameForm == ""){
+        checkMessage = "Vérifier/renseigner votre prénom";
+    } else {
+        console.log("Prénom : OK !");
+    };
+    
+
+
+    
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 let form = document.getElementById("form");
 
 form.addEventListener('submit', function (e) {   
@@ -91,35 +135,5 @@ form.addEventListener('submit', function (e) {
     })
 });
 
-let firstNameForm = document.getElementById('firstName');
-let lastNameForm = document.getElementById('lastName');
-let addressForm = document.getElementById('address');
-let cityForm = document.getElementById('city');
-let emailForm = document.getElementById('email');
 
-let buttonForm = document.getElementById('form-button');
-
-//function inputOk() {
-    let checkMessage = "";
-
-    let regexNumber = /[0-9]/;
-    let regexString = /[a-zA-Z]/;
-    let regexSpecialCharacter = /[§!@#$%^&*(),.?":{}|<>]/;
-    let regexEmail = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/y;
-
-    //let errorInput = ;
-
-    firstNameForm.addEventListener('input', function(e) {
-        let value = e.target.value;
-        if (regexNumber.test(value) == true || regexSpecialCharacter.test(value) == true || firstNameForm.value == ""){
-            checkMessage = "Vérifier/renseigner votre nom";
-            buttonForm.disabled = true;
-        } else {
-          console.log("Nom : OK !");
-          buttonForm.disabled = false;
-        }
-    });
-    
-
-//};
 
