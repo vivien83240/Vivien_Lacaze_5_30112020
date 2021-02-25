@@ -17,7 +17,7 @@ fetch( 'http://localhost:3000/api/cameras/' , {method: 'GET'})
                 <ul class="carte__ctn">
                     <li class="carte__ctn--text">
                         <h2> ${product.name} </h2>
-                        <p> ${product.price} € </p>
+                        <p> ${product.price / 100} € </p>
                     </li>
                     <li class="carte__ctn--panier">
                         <i class="fas fa-cart-arrow-down"></i>

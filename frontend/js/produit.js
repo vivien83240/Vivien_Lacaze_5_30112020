@@ -14,7 +14,7 @@ fetch( url , {method: 'GET'})
 
     let produitText = document.getElementById('produit__text');
     produitText.innerHTML = `<h1> ${product.name} </h1>
-                            <div class="produit__text--prix"> ${product.price} € </div>
+                            <div class="produit__text--prix"> ${product.price / 100} € </div>
                             <p> ${product.description}</p>
                             <div class="produit__text--option">
                             Lentilles :
@@ -69,9 +69,9 @@ fetch( url , {method: 'GET'})
 
         if (panierTotal != null) {
             panierTotal = parseInt(panierTotal);
-            localStorage.setItem("prixTotal", panierTotal + product.price);
+            localStorage.setItem("prixTotal", panierTotal + product.price / 100);
         } else {
-            localStorage.setItem("prixTotal", product.price);
+            localStorage.setItem("prixTotal", product.price / 100);
         } 
     }
 

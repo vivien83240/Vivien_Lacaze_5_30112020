@@ -1,3 +1,6 @@
+
+///////////////////   TABLEAU PANIER   ///////////////////
+
 let panier = localStorage.getItem('panier');
 panier = JSON.parse(panier);
 
@@ -14,7 +17,7 @@ function afficheProduit (){
                 <td align="left" class="titre-produit"><img src="${product.imageUrl}" alt="Photo de camera - ${product.name}"> <span>${product.name}</span></td>
                 <td> ${product.lenses} </td>
                 <td>1</td>
-                <td> ${product.price} € </td>
+                <td> ${product.price / 100} € </td>
                 <td><i class="fas fa-trash-alt" id="icon-suppr"></i></td>
             </tr>`
         });
@@ -48,6 +51,8 @@ afficheProduit();
 prixTotal();
 
 
+///////////////////   FORMULAIRE   ///////////////////
+
 let form = document.getElementById("form");
 
 form.addEventListener('submit', function (e) {   
@@ -65,7 +70,7 @@ form.addEventListener('submit', function (e) {
     
     let myObject = {
         contact : myContact,
-        products : panier
+        products : panier 
     }
 
     console.log(panier);
@@ -85,4 +90,36 @@ form.addEventListener('submit', function (e) {
         console.error(error);
     })
 });
+
+let firstNameForm = document.getElementById('firstName');
+let lastNameForm = document.getElementById('lastName');
+let addressForm = document.getElementById('address');
+let cityForm = document.getElementById('city');
+let emailForm = document.getElementById('email');
+
+let buttonForm = document.getElementById('form-button');
+
+//function inputOk() {
+    let checkMessage = "";
+
+    let regexNumber = /[0-9]/;
+    let regexString = /[a-zA-Z]/;
+    let regexSpecialCharacter = /[§!@#$%^&*(),.?":{}|<>]/;
+    let regexEmail = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/y;
+
+    //let errorInput = ;
+
+    firstNameForm.addEventListener('input', function(e) {
+        let value = e.target.value;
+        if (regexNumber.test(value) == true || regexSpecialCharacter.test(value) == true || firstNameForm.value == ""){
+            checkMessage = "Vérifier/renseigner votre nom";
+            buttonForm.disabled = true;
+        } else {
+          console.log("Nom : OK !");
+          buttonForm.disabled = false;
+        }
+    });
+    
+
+//};
 
