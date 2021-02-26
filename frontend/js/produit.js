@@ -74,5 +74,4 @@ fetch( url , {method: 'GET'})
             localStorage.setItem("prixTotal", product.price / 100);
         } 
     }
-
 })
