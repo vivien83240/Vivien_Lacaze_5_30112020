@@ -54,9 +54,15 @@ prixTotal();
 ///////////////////   FORMULAIRE   ///////////////////
 
 
-
-
+let form = document.getElementById("form");
 let buttonForm = document.getElementById('form-button');
+
+form.addEventListener('submit', function (e) {   
+    e.preventDefault();
+    verifInput();
+    sendForm();
+});
+
 
 function verifInput() {
     let checkMessage = "";
@@ -119,16 +125,9 @@ function verifInput() {
         console.log(myContact);
         return myContact;
     };
-
-
 };
 
-
-let form = document.getElementById("form");
-
-form.addEventListener('submit', function (e) {   
-    e.preventDefault();
-    verifInput()
+function sendForm(){
 
     let data = new FormData(form);
 
@@ -144,7 +143,6 @@ form.addEventListener('submit', function (e) {
         contact : myContact,
         products : panier 
     }
-
     console.log(panier);
 
     fetch('http://localhost:3000/api/cameras/order', {
@@ -161,7 +159,6 @@ form.addEventListener('submit', function (e) {
     }).catch(function (error) {
         console.error(error);
     })
-});
-
+};
 
 
