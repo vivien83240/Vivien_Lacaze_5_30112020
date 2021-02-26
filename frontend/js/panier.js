@@ -113,7 +113,6 @@ function verifInput() {
     if (checkMessage != ""){
         alert("Il est nécessaire de :" + "\n" + checkMessage);
     }
-    //Si tout est ok construction de l'objet contact => a revoir
     else{
         let myContact = {
             firstName : firstNameForm,
