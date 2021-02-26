@@ -52,22 +52,146 @@ prixTotal();
 ///////////////////   FORMULAIRE   ///////////////////
 
 
-let form = document.getElementById("form");
-let buttonForm = document.getElementById('form-button');
+form.addEventListener('click', function (e) {
+    e.preventDefault();
+    //e.stopPropagation();
 
-form.addEventListener('submit', function (e) {   
+    let form = document.getElementById("form");
+    let buttonForm = document.getElementById('form-button');
+
+    let data = new FormData(form);
+    
+    let myContact = {
+        firstName : data.get('firstName'),
+        lastName : data.get('lastName'), 
+        address : data.get('address'), 
+        city : data.get('city'),
+        email : data.get('email')
+    }
+    
+    let myObject = {
+        contact : myContact,
+        products : panier 
+    }
+
+    fetch('http://localhost:3000/api/cameras/order', {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify(myObject)
+        }).then(function (response) {
+            return response.json();
+        }).then(function (data) {
+            console.log(data);
+            sessionStorage.setItem("order", JSON.stringify(data));
+                console.log("redirection autorisée !");
+                form.action = './confirmation-de-commande.html';
+                form.submit();
+            
+        }).catch(function (error) {
+            console.error(error);
+    });
+  
+            
+    if(verifInput() != null){
+        console.log("Envoi autorisée !");
+        //sendForm();
+        //localStorage.clear();
+    }else{
+        console.log("Envoi échoué !");
+    };
+    
+    
+    
+
+    function verifInput() {
+        let checkMessage = "";
+        
+        let firstNameForm = document.getElementById('firstName').value;
+        let lastNameForm = document.getElementById('lastName').value;
+        let addressForm = document.getElementById('address').value;
+        let cityForm = document.getElementById('city').value;
+        let emailForm = document.getElementById('email').value;
+    
+        let regexNumber = /[0-9]/;
+        let regexSpecialCharacter = /[§!@#$%^&*(),.?":{}|<>]/;
+        let regexEmail = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/y;
+    
+        
+        if (regexNumber.test(firstNameForm) == true || regexSpecialCharacter.test(firstNameForm) == true || firstNameForm == ""){
+            checkMessage = "Vérifier ou renseigner votre prénom";
+        } else {
+            console.log("Prénom : OK !");
+        };
+    
+        if (regexNumber.test(lastNameForm) == true || regexSpecialCharacter.test(lastNameForm) == true || lastNameForm == ""){
+            checkMessage = checkMessage + "\n" + "Vérifier ou renseigner votre nom";
+        } else {
+            console.log("Nom : OK !");
+        };
+    
+        if (regexSpecialCharacter.test(addressForm) == true || addressForm == ""){
+            checkMessage = checkMessage + "\n" + "Vérifier ou renseigner votre adresse";
+        } else {
+            console.log("Adresse : OK !");
+        };
+    
+        if (regexNumber.test(cityForm) == true || regexSpecialCharacter.test(cityForm) == true || cityForm == ""){
+            checkMessage = checkMessage + "\n" + "Vérifier ou renseigner votre ville";
+        } else {
+            console.log("Ville : OK !");
+        };
+    
+        if (regexEmail.test(emailForm) == false){
+            checkMessage = checkMessage + "\n" + "Vérifier ou renseigner votre email";
+        } else {
+            console.log("Email : OK !");
+        };
+    
+        if (checkMessage != ""){
+            alert("Il est nécessaire de :" + "\n" + checkMessage);
+        }
+        else{
+            let myContact = {
+                firstName : firstNameForm,
+                lastName : lastNameForm,
+                address : addressForm,
+                city : cityForm,
+                email : emailForm
+            };
+            console.log(myContact);
+            return myContact;
+        };
+    };
+});
+
+
+
+
+
+
+
+
+
+
+
+/*form.addEventListener('submit', function (e) {   
     //e.preventDefault();
     
     if(verifInput() != null){
         console.log("Envoi autorisée !");
         sendForm();
-
+        //localStorage.clear();
         document.forms["form"].action = './confirmation-de-commande.html';
-        localStorage.clear();
+        
+        
     }else{
         console.log("Envoi échoué !");
     };
 });
+
 
 function verifInput() {
     let checkMessage = "";
@@ -164,6 +288,23 @@ function sendForm(){
     }).catch(function (error) {
         console.error(error);
     })
-};
+};*/
 
+/*function commandeOk(){
 
+	if(sessionStorage.getItem("order") != null){
+        let order = JSON.parse(sessionStorage.getItem("order"));
+        let congrats = document.getElementById('congrats');
+        congrats.innerHTML = '';
+        congrats.innerHTML += `
+            <h1>Félicitations ${order.contact.lastName}! Votre commande N° ${order.orderId} à été validé.
+            </h1>
+            <p>Votre commande sera expédiée prochainement.</p>`
+        
+        //sessionStorage.removeItem("order");
+    }else{
+
+    alert("Vous n'avez pas passé de commande, vous allez être redirigé vers l'accueil.");
+    //window.open("./index.html");
+    };
+};*/
