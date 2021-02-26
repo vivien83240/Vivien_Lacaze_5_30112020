@@ -62,15 +62,16 @@ form.addEventListener('submit', function (e) {
         console.log("Envoi autorisée !");
         sendForm();
 
-        myContact = {};
-        products = [];
-        localStorage.clear();
+        //sessionStorage.setItem("order", data);
+        document.forms["form"].action = './confirmation-de-commande.html';
+
+        //myContact = {};
+        //products = [];
+        //localStorage.clear();
     }else{
         console.log("Envoi échoué !");
     };
 });
-
-
 
 function verifInput() {
     let checkMessage = "";
@@ -163,6 +164,7 @@ function sendForm(){
         return response.json();
     }).then(function (data) {
         console.log(data);
+        sessionStorage.setItem("order", JSON.stringify(data));
     }).catch(function (error) {
         console.error(error);
     })
