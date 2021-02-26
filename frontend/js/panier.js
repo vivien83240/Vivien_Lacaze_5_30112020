@@ -54,16 +54,18 @@ prixTotal();
 ///////////////////   FORMULAIRE   ///////////////////
 
 
-let firstNameForm = document.getElementById('firstName').value;
-let lastNameForm = document.getElementById('lastName').value;
-let addressForm = document.getElementById('address').value;
-let cityForm = document.getElementById('city').value;
-let emailForm = document.getElementById('email').value;
+
 
 let buttonForm = document.getElementById('form-button');
 
-function inputOk() {
+function verifInput() {
     let checkMessage = "";
+    
+    let firstNameForm = document.getElementById('firstName').value;
+    let lastNameForm = document.getElementById('lastName').value;
+    let addressForm = document.getElementById('address').value;
+    let cityForm = document.getElementById('city').value;
+    let emailForm = document.getElementById('email').value;
 
     let regexNumber = /[0-9]/;
     let regexString = /[a-zA-Z]/;
@@ -71,36 +73,62 @@ function inputOk() {
     let regexEmail = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/y;
 
     
-    if (regexNumber.test(value) == true || regexSpecialCharacter.test(value) == true || firstNameForm == ""){
-        checkMessage = "Vérifier/renseigner votre prénom";
+    if (regexNumber.test(firstNameForm) == true || regexSpecialCharacter.test(firstNameForm) == true || firstNameForm == ""){
+        checkMessage = "Vérifier ou renseigner votre prénom";
     } else {
         console.log("Prénom : OK !");
     };
-    
+
+    if (regexNumber.test(lastNameForm) == true || regexSpecialCharacter.test(lastNameForm) == true || lastNameForm == ""){
+        checkMessage = checkMessage + "\n" + "Vérifier ou renseigner votre nom";
+    } else {
+        console.log("Nom : OK !");
+    };
+
+    if (regexSpecialCharacter.test(addressForm) == true || addressForm == ""){
+        checkMessage = checkMessage + "\n" + "Vérifier ou renseigner votre adresse";
+    } else {
+        console.log("Adresse : OK !");
+    };
+
+    if (regexNumber.test(cityForm) == true || regexSpecialCharacter.test(cityForm) == true || cityForm == ""){
+        checkMessage = checkMessage + "\n" + "Vérifier ou renseigner votre ville";
+    } else {
+        console.log("Ville : OK !");
+    };
 
 
-    
+    if (regexEmail.test(emailForm) == false){
+        checkMessage = checkMessage + "\n" + "Vérifier ou renseigner votre email";
+    } else {
+        console.log("Email : OK !");
+    };
+
+    if (checkMessage != ""){
+        alert("Il est nécessaire de :" + "\n" + checkMessage);
+    }
+    //Si tout est ok construction de l'objet contact => a revoir
+    else{
+        let myContact = {
+            firstName : firstNameForm,
+            lastName : lastNameForm,
+            address : addressForm,
+            city : cityForm,
+            email : emailForm
+        };
+        console.log(myContact);
+        return myContact;
+    };
+
 
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 let form = document.getElementById("form");
 
 form.addEventListener('submit', function (e) {   
     e.preventDefault();
+    verifInput()
 
     let data = new FormData(form);
 
