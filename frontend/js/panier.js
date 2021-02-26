@@ -56,18 +56,14 @@ let form = document.getElementById("form");
 let buttonForm = document.getElementById('form-button');
 
 form.addEventListener('submit', function (e) {   
-    e.preventDefault();
+    //e.preventDefault();
     
     if(verifInput() != null){
         console.log("Envoi autorisée !");
         sendForm();
 
-        //sessionStorage.setItem("order", data);
         document.forms["form"].action = './confirmation-de-commande.html';
-
-        //myContact = {};
-        //products = [];
-        //localStorage.clear();
+        localStorage.clear();
     }else{
         console.log("Envoi échoué !");
     };
