@@ -85,7 +85,7 @@ buttonForm.addEventListener('click', function (e) {
             return response.json();
         }).then(function (data) {
             console.log(data);
-            if(verifInput() != null){
+            if(verifInput() && verifPanier() != null){
                 console.log("Envoi autorisée !");
                 sessionStorage.setItem("order", JSON.stringify(data));
                 console.log("redirection autorisée !");
@@ -94,12 +94,23 @@ buttonForm.addEventListener('click', function (e) {
                 //localStorage.clear();
             }else{
                 console.log("Envoi échoué !");
+                //alert("Veuillez ajouter un article dans le panier !");
             };
         }).catch(function (error) {
             console.error(error);
     });
   
-    function verifInput() {
+    function verifPanier(){
+    
+        if(panier == null){
+            alert("Veuillez ajouter un article dans le panier !");
+        }else{
+            console.log("Panier : OK !")
+            return panier;
+        }
+    };
+
+    function verifInput(){
         let checkMessage = "";
         
         let firstNameForm = document.getElementById('firstName').value;
