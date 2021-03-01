@@ -48,17 +48,14 @@ function prixTotal(){
 afficheProduit();
 prixTotal();
 
-
 ///////////////////   FORMULAIRE   ///////////////////
 
 let buttonForm = document.getElementById('form-button');
+
 buttonForm.addEventListener('click', function (e) {
     e.preventDefault();
-    e.stopPropagation();
 
     let form = document.getElementById("form");
-   //let buttonForm = document.getElementById('form-button');
-
     let data = new FormData(form);
     
     let myContact = {
@@ -94,7 +91,6 @@ buttonForm.addEventListener('click', function (e) {
                 //localStorage.clear();
             }else{
                 console.log("Envoi échoué !");
-                //alert("Veuillez ajouter un article dans le panier !");
             };
         }).catch(function (error) {
             console.error(error);
