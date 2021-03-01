@@ -85,7 +85,7 @@ buttonForm.addEventListener('click', function (e) {
             return response.json();
         }).then(function (data) {
             console.log(data);
-            if(verifInput() && verifPanier() != null){
+            if( verifPanier() && verifInput() != null){
                 console.log("Envoi autorisée !");
                 sessionStorage.setItem("order", JSON.stringify(data));
                 console.log("redirection autorisée !");
@@ -101,7 +101,6 @@ buttonForm.addEventListener('click', function (e) {
     });
   
     function verifPanier(){
-    
         if(panier == null){
             alert("Veuillez ajouter un article dans le panier !");
         }else{
