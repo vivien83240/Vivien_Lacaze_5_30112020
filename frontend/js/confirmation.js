@@ -8,7 +8,7 @@ function commandeOk(){
         let congrats = document.getElementById('congrats');
         congrats.innerHTML = '';
         congrats.innerHTML += `
-            <h1>Félicitations ${order.contact.lastName} !<br/>
+            <h1>Félicitations ${order.contact.firstName} !<br/>
             Votre commande N° ${order.orderId} à été validé.
             </h1>
             <p>Votre commande sera expédiée prochainement.</p>`
