@@ -1,14 +1,12 @@
 //Récuperer l'id de l'url
 const urlParams = new URLSearchParams(window.location.search)
 const myIdProduit = urlParams.get('idProduit')
-
 let url = 'http://localhost:3000/api/cameras/'+myIdProduit
 
 fetch( url , {method: 'GET'})
 .then((data) => {
     return data.json();
 }).then((product) => {
-
     let produitImg = document.getElementById('produit__img');
     produitImg.innerHTML = `<img src="${product.imageUrl}" alt="Photo de camera - ${product.name}" />`
 
@@ -29,7 +27,6 @@ fetch( url , {method: 'GET'})
         lenses_html.innerHTML += `<option value="${lense}">${lense}</option>`   
     });
 
-
     let addToCart = document.querySelectorAll(".addToCart");
 
     for (let i=0; i < addToCart.length; i++) {
@@ -40,7 +37,6 @@ fetch( url , {method: 'GET'})
     }
 
     function addProduits(product){
-
         let panier = localStorage.getItem('panier');
         panier = JSON.parse(panier);
 
@@ -62,9 +58,7 @@ fetch( url , {method: 'GET'})
         localStorage.setItem('panier', JSON.stringify(panier)); 
     }
 
-
     function prixTotal(product){
-
         let panierTotal = localStorage.getItem('prixTotal');
 
         if (panierTotal != null) {

@@ -1,4 +1,3 @@
-
 ///////////////////   TABLEAU PANIER   ///////////////////
 
 let panier = localStorage.getItem('panier');

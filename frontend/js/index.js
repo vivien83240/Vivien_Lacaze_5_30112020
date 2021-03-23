@@ -1,8 +1,5 @@
-
-
 let elt = document.getElementById('produits');
 elt.innerHTML =''
-
 
 fetch( 'http://localhost:3000/api/cameras/' , {method: 'GET'})
 .then((data) => {
@@ -10,7 +7,6 @@ fetch( 'http://localhost:3000/api/cameras/' , {method: 'GET'})
 }).then((products) => {
     console.log(products)
     products.forEach(product =>{
-
         elt.innerHTML += `<li>
                 <a href="produit.html?idProduit=${product._id}">  
                 <img src="${product.imageUrl}" alt="Photo de camera - ${product.name}" />
@@ -26,5 +22,4 @@ fetch( 'http://localhost:3000/api/cameras/' , {method: 'GET'})
                 </a>           
             </li>`
     })
-
 })
