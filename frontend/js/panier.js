@@ -88,7 +88,7 @@ buttonForm.addEventListener('click', function (e) {
                 console.log("redirection autorisée !");
                 form.action = './confirmation-de-commande.html';
                 form.submit();
-                //localStorage.clear();
+                localStorage.clear();
             }else{
                 console.log("Envoi échoué !");
             };

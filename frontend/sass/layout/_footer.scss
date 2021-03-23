@@ -1,17 +1,32 @@
 footer{
     //width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     background: $colour-accent;
-    padding: 50px 150px 50px 150px;
+    padding: 5% 8% 5% 8%;
+        @include mobile-only{
+            flex-direction: column;
+            padding: 0px 50px 20px 50px;
+        }
     a{
         margin: 15px 0 0 0;
+            @include mobile-only{
+                text-align: center;
+            }
         img{
           width: 250px;  
+            @include mobile-only{
+                width: 70%;
+            }
         }  
     }
     ul{
         margin: 0 0 0 20px;
+            @include mobile-only{
+                margin-bottom: 10px;
+                margin-left: 0;
+            }
 
         h3{
             color: $colour-primary;

@@ -11,12 +11,12 @@
 <body>
     
     <header>
-        <a href="index.html"><img src="asset/img/logo_orinoco.png" alt="logo d'Orinoco'"/></a>  
+        <a class="logo-header" href="index.html"><img src="asset/img/logo_orinoco.png" alt="logo d'Orinoco'"/></a>  
 
         <nav>
             <ul>
                 <li><a href="index.html">Produits</a></li>
-                <li><a class="lien-panier" href="panier.html">Mon panier<i class="fas fa-shopping-cart"></i></a></li>
+                <li><a class="lien-panier" href="panier.html"><span>Mon panier</span><i class="fas fa-shopping-cart"></i></a></li>
             </ul>
         </nav>
     </header>
@@ -39,27 +39,29 @@
                 </tfoot>
             </table>
 
-            <form name="form" id="form">
-                <h2> Vos Coordonnées </h2>
-                <label for="firstName">Prénom : *</label>
-                <input type="text" name="firstName" id="firstName" autofocus required/>
+            <div id="ctn-form">
+                <form name="form" id="form">
+                    <h2> Vos Coordonnées </h2>
+                    <label for="firstName">Prénom : *</label>
+                    <input type="text" name="firstName" id="firstName" autofocus required/>
 
-                <label for="lastName">Nom : *</label>
-                <input type="text" name="lastName" id="lastName" required value="Smith"/>
+                    <label for="lastName">Nom : *</label>
+                    <input type="text" name="lastName" id="lastName" required value="Smith"/>
 
-                <label for="address">Adresse : *</label>
-                <input type="text" name="address" id="address" required value="5eme Avenue"/>
+                    <label for="address">Adresse : *</label>
+                    <input type="text" name="address" id="address" required value="5eme Avenue"/>
 
-                <label for="city">Ville : *</label>
-                <input type="text" name="city" id="city" required value="New York"/>
+                    <label for="city">Ville : *</label>
+                    <input type="text" name="city" id="city" required value="New York"/>
 
-                <label for="email">Email : *</label>
-                <input type="email" name="email" id="email" required value="contact@gmail.fr"/>
+                    <label for="email">Email : *</label>
+                    <input type="email" name="email" id="email" required value="contact@gmail.fr"/>
 
-                <p>* Champs requis</p>
+                    <p>* Champs requis</p>
 
-                <button type="submit" id="form-button">Valider la commande</button>
-            </form>
+                    <button type="submit" id="form-button">Valider la commande</button>
+                </form>
+            </div>
         </article>
     </section>
 
